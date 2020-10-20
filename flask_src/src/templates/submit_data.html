@@ -15,8 +15,10 @@
          <input type="password" placeholder="Password" name="password" value="{{
           request.form.password }}">
         <input class="btn btn-default" type="submit" value="Login">
-	-->
+	
 	<input type='file' accept=".txt" placeholder="Submit Data" name="submitted_data" value="{{ request.form.submitted_data }}">
+	-->
+	<input type="file" placeholder="Choose Data File" name="submitted_data" size="40" value=""{{ request.form.submitted_data }}"">
 	<br>
         <input class="btn btn-default" type="submit" value="Submit Data">
       </form>

@@ -1,19 +1,15 @@
 from flask import Flask, request, render_template, make_response, url_for, redirect
-import configparser
 from werkzeug.utils import secure_filename
 import os
+from google import testing_importing_gpx
 
 
 
 # Instantiate the app
 app = Flask(__name__)
-config = configparser.ConfigParser()
-config.read("credentials.ini")
-ALLOWED_EXTENSIONS = set(['txt'])
-
-#uploads_dir = os.path.join(config['DEFAULT']['UPLOAD_FOLDER'],  'upload_folder')
-#os.makedirs(uploads_dir, exist_ok=True)
-
+#config = configparser.ConfigParser()
+#config.read("credentials.ini")
+ALLOWED_EXTENSIONS = set(['gpx'])
 
 
 # Helper Function
@@ -24,8 +20,7 @@ def allowed_file(filename):
 
 @app.route('/viewfile/<filename>')
 def viewfile(filename):
-    with open('./'+filename) as f:
-        return f.read().strip()
+    return testing_importing_gpx(filename)
 
 
 """Login Page Logic"""
@@ -40,6 +35,8 @@ def get():
             filename = secure_filename(file_.filename)
             file_.save(filename)
             return redirect(url_for('viewfile', filename=filename))
+        elif file_ and not allowed_file(file_.filename):
+            return "Only gpx files allowed, go back and enter a gpx file"
     return render_template('submit_data.html')
 
 
