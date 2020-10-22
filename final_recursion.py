@@ -20,6 +20,7 @@ file = open('09_27_20.gpx', 'r')#for testing, it won't be here for final version
 parseado = gpxpy.parse(file)
 list = get_points(parseado)#array of objects that hold information like lat, long, elev, time.
 
+print(len(list))
 #first point and last one that are in the range is verify
 start = 0#first point
 end = len(list)-1#last point
