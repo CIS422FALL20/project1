@@ -119,7 +119,7 @@ class Route:
 
         result = []
         turn = ""
-
+        rango = 20
         result.append([])
         for i in range(0,len(input)-1):
             degree = 0
@@ -177,16 +177,15 @@ class Route:
 
         i = 0
         index = []
-        while i < len(self.__arr)-1:
+        while i < len(self.__storage)-1:
             j=0
-            while j < len(self.__arr[i])-1:
+            while j < len(self.__storage[i])-1:
                 if j == 0:
                     index.append(index[i][j])
                 j+=1
             i+=1
 
         final = direction(index)
-
 
         return final
 
