@@ -129,7 +129,7 @@ class Route:
                 a = [self.__arr[input[i]-rango].get_lat(), self.__arr[input[i]-rango].get_long()]
                 b = [self.__arr[input[i]].get_lat(), self.__arr[input[i]].get_long()]
                 c = [self.__arr[input[i]+rango].get_lat(), self.__arr[input[i]+rango].get_long()]
-                degree = get_angle(a,b,c)
+                degree = self.get_angle(a,b,c)
 
             if degree < 130 or degree > 240 or i == 0:
                 # print(route_distance(input[i], input[i+1]))
@@ -141,9 +141,9 @@ class Route:
                     turn = "Left"
                     # print("left")
 
-                meters = route_distance(list[i], list[i+1])
+                meters = self.route_distance(input[i], input[i+1])
 
-                result.append([input[i], turn, get_name_google(position[input[i]].get_lat(), position[input[i]].get_long()), position[input[i]].get_lat(), position[input[i]].get_long()])
+                result.append([input[i], turn, meters, get_name_google( self.__arr[input[i]].get_lat(), self.__arr[input[i]].get_long()), self.__arr[input[i]].get_lat(), self.__arr[input[i]].get_long() ])
 
         return result
 
@@ -151,7 +151,7 @@ class Route:
     def route_distance(self,start, end):
     	segment = 0
     	for i in range(start,end):
-    		segment+=distance(self.__arr [i].get_lat(), self.__arr [i].get_long(), self.__arr [i+1].get_lat(), self.__arr [i+1].get_long())
+    		segment+=self.distance(self.__arr [i].get_lat(), self.__arr [i].get_long(), self.__arr [i+1].get_lat(), self.__arr [i+1].get_long())
     	return segment
 
     def get_angle(self,a, b, c):
@@ -175,8 +175,8 @@ class Route:
         self.add_point(end+1)
         self.__storage.sort(key=lambda x: x[0])#sort order
 
-        print(self.__storage)
-        
+        # print(self.__storage)
+
         i = 0
         index = []
         while i < len(self.__storage)-1:
@@ -184,13 +184,13 @@ class Route:
             while j < len(self.__storage[i])-1:
                 if j == 0:
                     try:
-                        index.append(index[i][j])
+                        index.append(self.__storage[i][j])
                     except:
                         pass
                 j+=1
             i+=1
 
-        final = direction(index)
+        final = self.direction(index)
 
         return final
 
