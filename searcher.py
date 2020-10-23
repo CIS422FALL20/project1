@@ -24,7 +24,7 @@ from multiprocessing.pool import ThreadPool#multi process
 
 class Route:
 
-    def __init__(self, list, size):
+    def __init__(self, list):
         self.__arr = []#The points from the gpx live here.
         for i in list:
             self.__arr.append(i)
@@ -175,13 +175,18 @@ class Route:
         self.add_point(end+1)
         self.__storage.sort(key=lambda x: x[0])#sort order
 
+        print(self.__storage)
+        
         i = 0
         index = []
         while i < len(self.__storage)-1:
             j=0
             while j < len(self.__storage[i])-1:
                 if j == 0:
-                    index.append(index[i][j])
+                    try:
+                        index.append(index[i][j])
+                    except:
+                        pass
                 j+=1
             i+=1
 
