@@ -41,6 +41,10 @@ Clone the project from our GitHub Repository:
 
 $ git clone https://github.com/CIS422FALL20/project1
 
+--> Get an api key from https://console.cloud.google.com/apis/credentials/key/a8288a33-a249-4a99-8b26-5a8ac05126f7?project=endless-apogee-269606
+--> Open the credentials.ini file within the src directory, and enter in your api key
+
+
 Build the Project:
 ------------------
 You can do this with our run.sh file after setting its permissions, by running the following commands in the command line

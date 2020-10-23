@@ -1,0 +1,9 @@
+version: '3'  # version of compose format 
+
+services:
+  website:
+    build: ./src  
+    volumes:
+      - ./src:/usr/src/app 
+    ports:
+      - 5000:80  # host:container

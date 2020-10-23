@@ -1,27 +1,31 @@
 <html>  
 <head>
-    <title>Flask Intro - login page</title>
+    <title>Directions From GPX data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
+	<center>
+		<br>
     <div class="container">
       <h1>Submit data</h1>
       <br>
       <form action="/" method="POST" enctype="multipart/form-data">
-	<!--
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-	
-	<input type='file' accept=".txt" placeholder="Submit Data" name="submitted_data" value="{{ request.form.submitted_data }}">
-	-->
 	<input type="file" placeholder="Choose Data File" name="submitted_data" size="40" value=""{{ request.form.submitted_data }}"">
-	<br>
         <input class="btn btn-default" type="submit" value="Submit Data">
       </form>
+      <p>Enter your file here. It may take a couple minutes to load the directions. Check server logs for updates!</p>
     </div>
+	</center>
+	{% with messages = get_flashed_messages() %}
+  		{% if messages %}
+    			<ul class=flashes>
+    			{% for message in messages %}
+      				<li>{{ message }}</li>
+    			{% endfor %}
+    			</ul>
+  		{% endif %}
+	{% endwith %}
+	{% block body %}{% endblock %}
 </body>
 </html>

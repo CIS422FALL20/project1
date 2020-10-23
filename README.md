@@ -1,4 +1,4 @@
-####**Overview**
+**Overview**
 This project is a simple Web App that takes gpx data as an input and returns a list of directions,
 otherise known as a cue sheet, based on that data. The data typically comes from a road biker, however
 it is compatible with any street, so the data will work if a hiker, car or pedestrian of any kind sticks
