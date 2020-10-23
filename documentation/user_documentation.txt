@@ -1,0 +1,21 @@
+Using The Application:
+---------------------
+
+If you are an end user:
+-----------------------
+1. Run the server with the ./run.sh file
+2. Once the server is running, open a browser and navigate to <servername>:5000
+	- Most likely this is localhost:5000, but also could be testium.cs.uoregon.edu:5000 for example
+3. Input your chosen gpx file
+4. Wait for the program to compute the directions based on the gpx file chosen
+
+Module Interface
+-----------------
+The interface for the web app is extremely simple.
+The opening page mirrors this overall simplicity. There is only one place to input a file, and once you have selected your prefered gpx
+file, simply hit submit. The file will then be processed while a loading icon is shown, and your directions will eventually pop up.
+
+Other:
+------
+If you are looking to develop/maintain our project, look at the architecture_documentation.txt of our project for more information
+

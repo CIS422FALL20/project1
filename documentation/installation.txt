@@ -1,0 +1,57 @@
+This project has not been tested on other docker versions, as we recommend updating docker to its most recent version.
+
+Our only dependency is that your machine can install and run docker on any of the following operating systems:
+
+
+Getting Started:
+---------------
+
+For Installing Docker, if requirement is not already satisfied:
+---------------------------------------------------------------
+
+*For macOS version 10.14 or newer*
+You can download docker with the following command:
+$ brew cask install docker
+
+or you can follow the instructions at https://docs.docker.com/docker-for-mac/install/
+
+*For Linux*
+Depending on your Linux Distribution, you can follow the instructions at the follow locations:
+
+CentOS: https://docs.docker.com/engine/install/centos/
+Debian: https://docs.docker.com/engine/install/debian/
+Fedora: https://docs.docker.com/engine/install/fedora/
+Raspbian: https://docs.docker.com/engine/install/debian/
+Ubuntu: https://docs.docker.com/engine/install/ubuntu/
+
+*For Windows 10*
+You can follow the instructions at
+https://docs.docker.com/docker-for-windows/install/
+
+
+-- You can test if docker is installed by running --
+
+$ docker -v
+
+-- If this returns a version of docker, you have correctly installed docker -- 
+
+After Docker is installed:
+--------------------------
+Clone the project from our GitHub Repository:
+
+$ git clone https://github.com/CIS422FALL20/project1
+
+Build the Project:
+------------------
+You can do this with our run.sh file after setting its permissions, by running the following commands in the command line
+
+$ chmod 777 run.sh
+$ cd project1
+$ ./run.sh
+
+The run.sh file contains the following command
+
+$ docker-compose up --build
+
+This will build our project, and run the webserver, which you can view in localhost:5000 in a browser
+

@@ -1,0 +1,17 @@
+Architecture:
+------------
+The only file that exists outside of the src directory is our docker-compose.yml, which is the top-level of our
+project. This file is responsible for running and hosting the server on a specific port (5000), and running the 
+Dockerfile, which takes care of dependencies, requirements and runs the flask server through app.py.
+
+All of our source files otherwise, exist within the src directory of the project. The main file that does the backend work
+is the flask python file named app.py. app.py imports functions from the other python files, and runs them within the flask 
+functions so it can eventually serve the output to the user in the browser. These other files include **( !--- include files 
+and functionality here ---! )**. app.py also serves the html files in the sub-directory templates.
+
+We have seperated the flask file and the files that calculate the turns for ease of building something from the independent parts.
+Our turn calculation files are already completely independent, and simply take any arbitrary gpx file to work. app.py and its subsequent
+html templates act as a good starting point for a project that needs to take file input from the user. Simply replacing the currently 
+imported functions with other developed functions can seamlessly create a project with an entirely new functionality. This seperation 
+of files makes it easy for further development, as shown here.
+
